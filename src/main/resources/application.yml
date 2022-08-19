@@ -6,9 +6,9 @@ spring:
       matching-strategy: ant_path_matcher
   datasource:
     driver-class-name: org.h2.Driver
-    username: angela
+    username: a
     password: 12345
-    url: "jdbc:h2:mem:disneyapi;DB_CLOSE_ON_EXIT=FALSE"
+    url: "jdbc:h2:mem:disney-api-rest;DB_CLOSE_ON_EXIT=FALSE"
   h2:
     console:
       enabled: true
