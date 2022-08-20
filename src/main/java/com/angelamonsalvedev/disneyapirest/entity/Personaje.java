@@ -18,6 +18,9 @@ public class Personaje {
     @Column(name = "imagen_personaje")
     private String imagen;
 
+    @Column(name = "nombre_personaje")
+    private String nombre;
+
     @Column(name = "edad_personaje")
     private Short edad;
 
