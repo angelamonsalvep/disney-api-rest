@@ -2,6 +2,7 @@ package com.angelamonsalvedev.disneyapirest.service;
 
 import com.angelamonsalvedev.disneyapirest.dto.PersonajeDTO;
 import com.angelamonsalvedev.disneyapirest.entity.Personaje;
+import com.angelamonsalvedev.disneyapirest.exception.ResourceNotFoundException;
 import com.angelamonsalvedev.disneyapirest.mapper.PersonajeDTOToPersonaje;
 import com.angelamonsalvedev.disneyapirest.mapper.PersonajeToPersonajeDTO;
 import com.angelamonsalvedev.disneyapirest.repository.PersonajeRepository;
@@ -33,5 +34,11 @@ public class PersonajeServiceImpl implements PersonajeService{
         List<Personaje> personajes = personajeRepository.findAll();
         return personajes.stream().map(personaje -> personajeToPersonajeDTO.map(personaje)).collect(Collectors.toList());
 
+    }
+
+    @Override
+    public PersonajeDTO obtenerPersonajePorId(Long id) {
+        Personaje personaje = personajeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Personaje", "id", id ));
+        return personajeToPersonajeDTO.map(personaje);
     }
 }

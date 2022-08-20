@@ -10,4 +10,6 @@ public interface PersonajeService {
     public Personaje crearPersonaje(PersonajeDTO personajeDTO);
 
     public List<PersonajeDTO> listarPersonajes();
+
+    public PersonajeDTO obtenerPersonajePorId(Long id);
 }

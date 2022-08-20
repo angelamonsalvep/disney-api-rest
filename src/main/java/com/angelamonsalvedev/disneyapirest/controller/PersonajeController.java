@@ -28,4 +28,9 @@ public class PersonajeController {
     public ResponseEntity<List<PersonajeDTO>> listarPersonajes(){
         return new ResponseEntity<>(personajeService.listarPersonajes(), HttpStatus.OK);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<PersonajeDTO> obtenerPersonajePorId(@PathVariable(name = "id") Long id){
+        return ResponseEntity.ok(personajeService.obtenerPersonajePorId(id));
+    }
 }
