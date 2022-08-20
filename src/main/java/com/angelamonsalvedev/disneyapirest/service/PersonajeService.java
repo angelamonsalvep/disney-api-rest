@@ -12,4 +12,8 @@ public interface PersonajeService {
     public List<PersonajeDTO> listarPersonajes();
 
     public PersonajeDTO obtenerPersonajePorId(Long id);
+
+    public PersonajeDTO actualizarPersonaje(PersonajeDTO personajeDTO, Long id);
+
+    public void eliminarPersonaje(Long id);
 }

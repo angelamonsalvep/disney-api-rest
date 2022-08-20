@@ -33,4 +33,16 @@ public class PersonajeController {
     public ResponseEntity<PersonajeDTO> obtenerPersonajePorId(@PathVariable(name = "id") Long id){
         return ResponseEntity.ok(personajeService.obtenerPersonajePorId(id));
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<PersonajeDTO> actualizarPersonaje(@RequestBody PersonajeDTO personajeDTO, @PathVariable(name = "id") Long id){
+        return new ResponseEntity(personajeService.actualizarPersonaje(personajeDTO, id), HttpStatus.OK);
+
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> eliminarPersonaje(@PathVariable(name = "id") Long id){
+        personajeService.eliminarPersonaje(id);
+        return new ResponseEntity<>("Personaje eliminado", HttpStatus.OK);
+    }
 }

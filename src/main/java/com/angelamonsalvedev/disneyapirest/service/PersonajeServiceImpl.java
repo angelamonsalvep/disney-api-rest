@@ -38,7 +38,28 @@ public class PersonajeServiceImpl implements PersonajeService{
 
     @Override
     public PersonajeDTO obtenerPersonajePorId(Long id) {
-        Personaje personaje = personajeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Personaje", "id", id ));
+        Personaje personaje = personajeRepository.findById(id).orElseThrow(() ->
+                new ResourceNotFoundException("Personaje", "id", id ));
         return personajeToPersonajeDTO.map(personaje);
+    }
+
+    @Override
+    public PersonajeDTO actualizarPersonaje(PersonajeDTO personajeDTO, Long id) {
+        Personaje personaje = personajeRepository.findById(id).orElseThrow(() ->
+                new ResourceNotFoundException("Personaje", "id", id ));
+        personaje.setNombre(personajeDTO.getNombre());
+        personaje.setImagen(personajeDTO.getImagen());
+        personaje.setEdad(personajeDTO.getEdad());
+        personaje.setPeso(personajeDTO.getPeso());
+        personaje.setHistoria(personajeDTO.getHistoria());
+        Personaje personajeActualizado = personajeRepository.save(personaje);
+        return personajeToPersonajeDTO.map(personajeActualizado);
+    }
+
+    @Override
+    public void eliminarPersonaje(Long id) {
+        Personaje personaje = personajeRepository.findById(id).orElseThrow(() ->
+                new ResourceNotFoundException("Personaje", "id", id ));
+        personajeRepository.delete(personaje);
     }
 }
