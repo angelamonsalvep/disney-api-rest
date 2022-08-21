@@ -18,4 +18,6 @@ public interface PersonajeService {
     public void eliminarPersonaje(Long id);
 
     public List<PersonajeDTO> obtenerPersonajePorNombre(String nombre);
+
+    public List<PersonajeDTO> obtenerPersonajePorEdad(Short edad);
 }

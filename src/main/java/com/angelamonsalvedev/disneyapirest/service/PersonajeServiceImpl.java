@@ -69,4 +69,11 @@ public class PersonajeServiceImpl implements PersonajeService{
         return personajes.stream().map(personaje -> personajeToPersonajeDTO.map(personaje)).collect(Collectors.toList());
 
     }
+
+    @Override
+    public List<PersonajeDTO> obtenerPersonajePorEdad(Short edad) {
+        List<Personaje> personajes = personajeRepository.findAllByEdad(edad);
+        return personajes.stream().map(personaje -> personajeToPersonajeDTO.map(personaje)).collect(Collectors.toList());
+
+    }
 }

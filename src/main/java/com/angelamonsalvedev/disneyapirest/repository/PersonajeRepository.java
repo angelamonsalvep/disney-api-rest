@@ -9,4 +9,6 @@ import java.util.List;
 public interface PersonajeRepository extends JpaRepository<Personaje, Long> {
 
     public List<Personaje> findAllByNombre(String nombre);
+
+    public List<Personaje> findAllByEdad(Short edad);
 }
