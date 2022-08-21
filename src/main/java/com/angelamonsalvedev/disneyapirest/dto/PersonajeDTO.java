@@ -1,9 +1,6 @@
 package com.angelamonsalvedev.disneyapirest.dto;
 
-import com.angelamonsalvedev.disneyapirest.entity.PersonajeObraCinematografica;
 import lombok.Data;
-
-import java.util.List;
 
 @Data
 public class PersonajeDTO {
