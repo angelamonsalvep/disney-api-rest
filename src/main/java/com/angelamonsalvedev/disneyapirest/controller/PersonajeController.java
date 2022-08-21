@@ -26,12 +26,15 @@ public class PersonajeController {
 
     @GetMapping
     public ResponseEntity<List<PersonajeDTO>> listarPersonajes(@RequestParam(name = "name", required = false) String nombrePersonaje,
-                                                               @RequestParam(name = "age", required = false) Short edadPersonaje){
+                                                               @RequestParam(name = "age", required = false) Short edadPersonaje,
+                                                               @RequestParam(name = "weight", required = false) Float pesoPersonaje){
         if(nombrePersonaje!=null){
             return new ResponseEntity<>(personajeService.obtenerPersonajePorNombre(nombrePersonaje), HttpStatus.OK);
         } else if(edadPersonaje!=null){
             return new ResponseEntity<>(personajeService.obtenerPersonajePorEdad(edadPersonaje), HttpStatus.OK);
-        }else {
+        }else if(pesoPersonaje!=null){
+            return new ResponseEntity<>(personajeService.obtenerPersonajePorPeso(pesoPersonaje), HttpStatus.OK);
+        }else{
             return new ResponseEntity<>(personajeService.listarPersonajes(), HttpStatus.OK);
         }
 

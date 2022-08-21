@@ -11,4 +11,6 @@ public interface PersonajeRepository extends JpaRepository<Personaje, Long> {
     public List<Personaje> findAllByNombre(String nombre);
 
     public List<Personaje> findAllByEdad(Short edad);
+
+    public List<Personaje> findAllByPeso(Float peso);
 }

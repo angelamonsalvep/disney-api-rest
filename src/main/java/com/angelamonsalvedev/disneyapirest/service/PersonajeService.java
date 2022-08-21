@@ -20,4 +20,6 @@ public interface PersonajeService {
     public List<PersonajeDTO> obtenerPersonajePorNombre(String nombre);
 
     public List<PersonajeDTO> obtenerPersonajePorEdad(Short edad);
+
+    public List<PersonajeDTO> obtenerPersonajePorPeso(Float peso);
 }

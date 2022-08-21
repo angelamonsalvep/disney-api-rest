@@ -76,4 +76,11 @@ public class PersonajeServiceImpl implements PersonajeService{
         return personajes.stream().map(personaje -> personajeToPersonajeDTO.map(personaje)).collect(Collectors.toList());
 
     }
+
+    @Override
+    public List<PersonajeDTO> obtenerPersonajePorPeso(Float peso) {
+        List<Personaje> personajes = personajeRepository.findAllByPeso(peso);
+        return personajes.stream().map(personaje -> personajeToPersonajeDTO.map(personaje)).collect(Collectors.toList());
+    }
+
 }
