@@ -25,8 +25,13 @@ public class PersonajeController {
     }
 
     @GetMapping
-    public ResponseEntity<List<PersonajeDTO>> listarPersonajes(){
-        return new ResponseEntity<>(personajeService.listarPersonajes(), HttpStatus.OK);
+    public ResponseEntity<List<PersonajeDTO>> listarPersonajes(@RequestParam(name = "name", required = false) String nombrePersonaje){
+        if(nombrePersonaje!=null){
+            return new ResponseEntity<>(personajeService.obtenerPersonajePorNombre(nombrePersonaje), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(personajeService.listarPersonajes(), HttpStatus.OK);
+        }
+
     }
 
     @GetMapping("/{id}")

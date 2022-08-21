@@ -62,4 +62,11 @@ public class PersonajeServiceImpl implements PersonajeService{
                 new ResourceNotFoundException("Personaje", "id", id ));
         personajeRepository.delete(personaje);
     }
+
+    @Override
+    public List<PersonajeDTO> obtenerPersonajePorNombre(String nombre) {
+        List<Personaje> personajes = personajeRepository.findAllByNombre(nombre);
+        return personajes.stream().map(personaje -> personajeToPersonajeDTO.map(personaje)).collect(Collectors.toList());
+
+    }
 }

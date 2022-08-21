@@ -16,4 +16,6 @@ public interface PersonajeService {
     public PersonajeDTO actualizarPersonaje(PersonajeDTO personajeDTO, Long id);
 
     public void eliminarPersonaje(Long id);
+
+    public List<PersonajeDTO> obtenerPersonajePorNombre(String nombre);
 }
